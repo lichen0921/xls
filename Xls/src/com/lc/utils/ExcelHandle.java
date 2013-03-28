@@ -1,12 +1,10 @@
 package com.lc.utils;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.List;
 
 import android.util.Log;
 
-import com.lc.pojo.TotalSheet;
 
 import jxl.Cell;
 import jxl.Sheet;
