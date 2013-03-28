@@ -1,0 +1,117 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (javaClasses.cpp:129), pid=2976, tid=3780
+#  fatal error: Invalid layout of preloaded class
+#
+# JRE version: 7.0_09-b05
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (23.5-b02 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000001c5c800):  JavaThread "Unknown thread" [_thread_in_vm, id=3780, stack(0x0000000002670000,0x0000000002770000)]
+
+Stack: [0x0000000002670000,0x0000000002770000]
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000001c5c800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=3780, stack(0x0000000002670000,0x0000000002770000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.010 loading class 0x000000000202fca0 done
+Event: 0.010 loading class 0x0000000001ff20e0 done
+Event: 0.010 loading class 0x0000000001ff20b0
+Event: 0.010 loading class 0x0000000008b45350
+Event: 0.010 loading class 0x0000000008b45350 done
+Event: 0.010 loading class 0x0000000008b45390
+Event: 0.010 loading class 0x0000000008b45390 done
+Event: 0.010 loading class 0x0000000008a8d9a0
+Event: 0.010 loading class 0x0000000008a8d9a0 done
+Event: 0.010 loading class 0x0000000001ff20b0 done
+
+
+Dynamic libraries:
+0x000000013f070000 - 0x000000013f0a4000 	D:\Program Files\Java\jre7\bin\javaw.exe
+0x0000000077710000 - 0x00000000778b9000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00000000772e0000 - 0x00000000773ff000 	C:\Windows\system32\kernel32.dll
+0x000007fefdeb0000 - 0x000007fefdf1c000 	C:\Windows\system32\KERNELBASE.dll
+0x000007fefe0f0000 - 0x000007fefe1cb000 	C:\Windows\system32\ADVAPI32.dll
+0x000007feff790000 - 0x000007feff82f000 	C:\Windows\system32\msvcrt.dll
+0x000007feff910000 - 0x000007feff92f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefe2b0000 - 0x000007fefe3dd000 	C:\Windows\system32\RPCRT4.dll
+0x0000000077400000 - 0x00000000774fa000 	C:\Windows\system32\USER32.dll
+0x000007feff170000 - 0x000007feff1d7000 	C:\Windows\system32\GDI32.dll
+0x000007fefe010000 - 0x000007fefe01e000 	C:\Windows\system32\LPK.dll
+0x000007fefe020000 - 0x000007fefe0e9000 	C:\Windows\system32\USP10.dll
+0x000007fefc370000 - 0x000007fefc564000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_fa396087175ac9ac\COMCTL32.dll
+0x000007fefe230000 - 0x000007fefe2a1000 	C:\Windows\system32\SHLWAPI.dll
+0x000007feff930000 - 0x000007feff95e000 	C:\Windows\system32\IMM32.DLL
+0x000007feff1e0000 - 0x000007feff2e9000 	C:\Windows\system32\MSCTF.dll
+0x000007fefdb30000 - 0x000007fefdb70000 	C:\Windows\system32\nvinitx.dll
+0x000000000f000000 - 0x000000000f006000 	C:\Program Files\NVIDIA Corporation\CoProcManager\_etoured.dll
+0x000007fef6770000 - 0x000007fef67c4000 	C:\Program Files\NVIDIA Corporation\CoProcManager\nvd3d9wrapx.dll
+0x000007feff510000 - 0x000007feff6e7000 	C:\Windows\system32\SETUPAPI.dll
+0x000007fefdc60000 - 0x000007fefdc96000 	C:\Windows\system32\CFGMGR32.dll
+0x000007feff830000 - 0x000007feff907000 	C:\Windows\system32\OLEAUT32.dll
+0x000007feff300000 - 0x000007feff503000 	C:\Windows\system32\ole32.dll
+0x000007fefdf20000 - 0x000007fefdf3a000 	C:\Windows\system32\DEVOBJ.dll
+0x000007fef6720000 - 0x000007fef6763000 	C:\Program Files\NVIDIA Corporation\CoProcManager\nvdxgiwrapx.dll
+0x000000006faa0000 - 0x000000006fb71000 	D:\Program Files\Java\jre7\bin\msvcr100.dll
+0x000000006f380000 - 0x000000006fa9f000 	D:\Program Files\Java\jre7\bin\server\jvm.dll
+0x000007fef49b0000 - 0x000007fef49b9000 	C:\Windows\system32\WSOCK32.dll
+0x000007fefdf40000 - 0x000007fefdf8d000 	C:\Windows\system32\WS2_32.dll
+0x000007feff2f0000 - 0x000007feff2f8000 	C:\Windows\system32\NSI.dll
+0x000007fef94f0000 - 0x000007fef952b000 	C:\Windows\system32\WINMM.dll
+0x00000000778d0000 - 0x00000000778d7000 	C:\Windows\system32\PSAPI.DLL
+0x000000006f370000 - 0x000000006f37f000 	D:\Program Files\Java\jre7\bin\verify.dll
+0x000000006f340000 - 0x000000006f368000 	D:\Program Files\Java\jre7\bin\java.dll
+0x000000006f320000 - 0x000000006f335000 	D:\Program Files\Java\jre7\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=GBK -Xbootclasspath:D:\tools\adt-bundle-windows\sdk\platforms\android-4.2\android.jar 
+java_command: com.lc.utils.ExcelHandle
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT
+USERNAME=Administrator
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, ht, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 4077412k(2344000k free), swap 8152968k(5951676k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (23.5-b02) for windows-amd64 JRE (1.7.0_09-b05), built on Sep 24 2012 21:45:04 by "java_re" with unknown MS VC++:1600
+
+time: Tue Mar 26 13:27:15 2013
+elapsed time: 0 seconds
+

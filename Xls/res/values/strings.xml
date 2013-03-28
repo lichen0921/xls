@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">合并Excels</string>
+    <string name="xls_path">请把excel放在/sdcard/POI/MYDB/SUMMARY/目录下</string>
+    <string name="submit">生成总结Excel</string>
+    <string name="progress_title">请稍后</string>
+    <string name="progress_message">正在生成文件...</string>
+    <string name="progress_button">转入后台执行</string>
+    <string name="sum_file_name">合并.xls</string>
+    <string name="result_success_title">成功</string>
+    <string name="result_fault_title">未生成合并文件</string>
+    <string name="result_success_message">生成《合并.xls》</string>
+    <string name="result_button">我知道了</string>
+    <string name="menu_settings">Settings</string>
+
+</resources>
