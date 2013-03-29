@@ -52,14 +52,19 @@ public class XlsActivity extends Activity {
 		checkedStatus = new HashMap<Integer, Boolean>();
 		path = Tool.getExcelPath();
 		mData = getData();
-		for (int i = 0; i < mData.size(); i++) {// 默认全选
-			checkedStatus.put(i, true);
-		}
 		ExcelAdapter adapter = new ExcelAdapter(this);
 		listView = (ListView) findViewById(R.id.list);
 		listView.setAdapter(adapter);
 		TextView title = (TextView) findViewById(R.id.title);
 		title.setTypeface(tf);
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		for (int i = 0; i < mData.size(); i++) {// 默认全选
+			checkedStatus.put(i, true);
+		}
 	}
 
 	private List<Map<String, Object>> getData() {
@@ -136,32 +141,21 @@ public class XlsActivity extends Activity {
 							builder.setTitle(getString(R.string.result_success_title));
 							builder.setMessage(getString(R.string.result_success_message));
 							builder.setCancelable(true);
-							builder.setPositiveButton(
-									getString(R.string.result_button),
-									new OnClickListener() {
-										@Override
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-											alertDialog.dismiss();
-										}
-									});
-							builder.show();
 						} else {
 							builder.setTitle(getString(R.string.result_fault_title));
 							builder.setCancelable(true);
-							builder.setPositiveButton(
-									getString(R.string.result_button),
-									new OnClickListener() {
-										@Override
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-											alertDialog.dismiss();
-										}
-									});
-							builder.show();
 						}
+						builder.setPositiveButton(
+								getString(R.string.result_button),
+								new OnClickListener() {
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										alertDialog.dismiss();
+										XlsActivity.this.finish();
+									}
+								});
+						builder.show();
 					}
 				}.execute();
 				mProgressDialog.show();
@@ -179,13 +173,23 @@ public class XlsActivity extends Activity {
 				builder.show();
 			}
 			break;
-
+		/*case R.id.exit:
+			ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+			am.killBackgroundProcesses(getPackageName());
+			break;*/
 		default:
 			break;
 		}
 
 		return super.onMenuItemSelected(featureId, item);
 	}
+	
+	/*@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+		am.killBackgroundProcesses(getPackageName());
+	}*/
 
 	public class ExcelAdapter extends BaseAdapter {
 

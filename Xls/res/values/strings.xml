@@ -12,6 +12,7 @@
     <string name="result_fault_title">未生成合并文件</string>
     <string name="result_success_message">生成《合并.xls》</string>
     <string name="result_button">我知道了</string>
+    <string name="menu_exit">退出</string>
     <string name="menu_settings">Settings</string>
 
 </resources>

@@ -1,0 +1,29 @@
+
+关于在手机桌面悬浮窗口的备忘录
+
+网上搜了一些知道是用WindowManager来实现，可具体开发的时候发现要么遮挡屏幕，要么home键无法回到home界面，或者back回home界面后悬浮窗消失。
+其实只是一个参数的未正确设置。
+
+		final WindowManager window = (WindowManager) this.getApplicationContext().getSystemService(WINDOW_SERVICE);
+		LayoutParams params = new LayoutParams();
+		params.type = LayoutParams.TYPE_SYSTEM_OVERLAY; //此处，参数非常重要，决定了悬浮窗的特性。
+		params.format = PixelFormat.RGBA_8888;
+		params.flags = LayoutParams.FLAG_NOT_FOCUSABLE ;//不占用屏幕焦点
+		params.gravity = Gravity.RIGHT | Gravity.CENTER_VERTICAL;
+		params.x = 0;
+		params.y = 0;
+		params.width = LayoutParams.WRAP_CONTENT;
+		params.height = LayoutParams.WRAP_CONTENT;
+		
+		final Button button = new Button(this);
+		button.setText("abc");
+		button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				window.removeView(button);
+			}
+		});
+		if (button.getParent() != null) {
+			window.removeView(button);
+		}
+		window.addView(button, params);

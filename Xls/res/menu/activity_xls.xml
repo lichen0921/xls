@@ -5,5 +5,9 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/submit"/>
-
+    <!-- <item
+        android:id="@+id/exit"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menu_exit"/> -->
 </menu>
