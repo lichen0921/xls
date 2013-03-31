@@ -46,6 +46,7 @@ public class XlsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		overridePendingTransition(R.anim.fade, R.anim.hold); 
 		tf = Typeface.createFromAsset(getAssets(), "font/comic.ttf");
 		setContentView(R.layout.activity_xls);
 		sumFileName = getString(R.string.sum_file_name);
