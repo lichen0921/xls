@@ -128,7 +128,8 @@ public class XlsActivity extends Activity {
 						for (String fileName : checkFileNames) {
 							files.add(new File(fileName));
 						}
-						return ExcelHandle.sumTotal(files, new File(excelPath
+						ExcelHandle excelHandle = new ExcelHandle();
+						return excelHandle.sumTotal(files, new File(excelPath
 								+ sumFileName));
 					}
 
