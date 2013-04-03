@@ -62,17 +62,18 @@ public class ExcelHandle {
 				cfNormalblue.setAlignment(Alignment.CENTRE);
 				cfNormalblue.setVerticalAlignment(VerticalAlignment.CENTRE);
 				cfNormalblue.setBorder(Border.ALL, BorderLineStyle.THIN);
-				//解锁单元格
-				WritableCellFormat cfUnlock = new WritableCellFormat(wfNormalblue);
+				// 解锁单元格
+				WritableCellFormat cfUnlock = new WritableCellFormat(
+						wfNormalblue);
 				cfUnlock.setAlignment(Alignment.CENTRE);
 				cfUnlock.setVerticalAlignment(VerticalAlignment.CENTRE);
 				cfUnlock.setBorder(Border.ALL, BorderLineStyle.THIN);
 				cfUnlock.setLocked(false);
-				
+
 				writeBook = Workbook.createWorkbook(targetFile);
 				for (int t = 0; t < numberOfSheets; t++) {
 					writeSheet = writeBook.createSheet(sheetNames[t], t);
-					//锁定excel
+					// 锁定excel
 					writeSheet.getSettings().setProtected(true);
 					// 第一行 标题
 					WritableFont mWritableFont_title = new WritableFont(
@@ -177,29 +178,21 @@ public class ExcelHandle {
 								}
 							}
 							for (int j = 0; j < columnum; j++) {
-								Double sumCol = 0.0;
 								// int i = 3 means delete header from sheet
-								for (int i = 3; i < rownum - (t == 0 ? 1 : 0); i++) {	
+								for (int i = 3; i < rownum - (t == 0 ? 1 : 0); i++) {
 									Cell cell = sheet.getCell(j, i);
 									String contents = cell.getContents();
 									if (isNumber(contents)) {
 										Number number = new Number(j, i + x,
 												Double.valueOf(contents),
 												cfNormalblue);
-										sumCol += Double.valueOf(contents);
-										System.out.println("j="+j+ ",i="+i+",sumCol Num = "+sumCol);
 										writeSheet.addCell(number);
 									} else {
 										label = new Label(j, i + x, contents,
 												cfNormalblue);
 										writeSheet.addCell(label);
-										sumCol += 0;
-										System.out.println("j="+j+ ",i="+i+",sumCol = "+sumCol);
 									}
 								}
-								writeSheet.addCell(new Number(j, rownum + x
-										- (t == 0 ? 1 : 0), sumCol,
-										cfNormalblue));
 							}
 							x += rownum - 3 - (t == 0 ? 1 : 0);// -1
 																// 是爲了多個表格無空行連接
@@ -207,9 +200,31 @@ public class ExcelHandle {
 						}
 					}
 					writeSheet = writeBook.getSheet(t);
-//					for (int j = 0; j < columnum; j++) {
-//						
-//					}
+					int rows = writeSheet.getRows();
+					for (int j = 0; j < writeSheet.getColumns(); j++) {
+						Double sumCol = 0.0;
+						Boolean flag = false;
+						for (int i = 0; i < rows; i++) {
+							Cell cell = writeSheet.getCell(j, i);
+							String contents = cell.getContents();
+							if (isNumber(contents)) {
+								sumCol += Double.valueOf(contents);
+								flag = true;
+							} else {
+								sumCol += 0.0;
+							}
+						}
+						if (flag) {
+							writeSheet.addCell(new Number(j, rows, sumCol,
+									cfNormalblue));
+						} else {
+							writeSheet.addCell(new Label(j, rows, "",
+									cfNormalblue));
+						}
+					}
+					writeSheet
+							.addCell(new Label(0, rows, "合  计", cfNormalblue));
+
 				}
 				writeBook.write();
 				writeBook.close();
@@ -240,26 +255,26 @@ public class ExcelHandle {
 		}
 		return flag;
 	}
-	
-//	private Double calculateAdd(Sheet sheet) {
-//		int columnum = sheet.getColumns();
-//		int rownum = sheet.getRows();
-//		Double sum = 0.0;
-//		for (int j = 0; j < columnum; j++) {
-//			Double sumCol = 0.0;
-//			for (int i = 0; i < rownum; i++) {
-//				Cell cell = sheet.getCell(j, i);
-//				String contents = cell.getContents();
-//				if (isNumber(contents)) {
-//					sumCol += Double.valueOf(contents);
-//				}
-//			}
-//			Number number = new Number(j, i + x, sumCol, cfNormalblue);
-//			writeSheet.addCell(number);
-//		}
-//		return null;
-//	}
-	
+
+	// private Double calculateAdd(Sheet sheet) {
+	// int columnum = sheet.getColumns();
+	// int rownum = sheet.getRows();
+	// Double sum = 0.0;
+	// for (int j = 0; j < columnum; j++) {
+	// Double sumCol = 0.0;
+	// for (int i = 0; i < rownum; i++) {
+	// Cell cell = sheet.getCell(j, i);
+	// String contents = cell.getContents();
+	// if (isNumber(contents)) {
+	// sumCol += Double.valueOf(contents);
+	// }
+	// }
+	// Number number = new Number(j, i + x, sumCol, cfNormalblue);
+	// writeSheet.addCell(number);
+	// }
+	// return null;
+	// }
+
 	public static void read(File file) {
 		try {
 			Workbook book = Workbook.getWorkbook(file);
